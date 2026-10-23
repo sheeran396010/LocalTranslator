@@ -1,0 +1,32 @@
+# UTF-8
+VSVersionInfo(
+  ffi=FixedFileInfo(
+    filevers=(1, 5, 0, 0),
+    prodvers=(1, 5, 0, 0),
+    mask=0x3f,
+    flags=0x0,
+    OS=0x40004,
+    fileType=0x1,
+    subtype=0x0,
+    date=(0, 0)
+  ),
+  kids=[
+    StringFileInfo([
+      StringTable(
+        '080404B0',
+        [
+          StringStruct('CompanyName', '虎腾猫跃'),
+          StringStruct('FileDescription', '本地截图翻译 LocalTranslator'),
+          StringStruct('FileVersion', '1.5.0.0'),
+          StringStruct('InternalName', 'LocalTranslator'),
+          StringStruct('LegalCopyright', 'Copyright (C) 2026 虎腾猫跃  |  GPL-3.0'),
+          StringStruct('OriginalFilename', 'LocalTranslator.exe'),
+          StringStruct('ProductName', 'LocalTranslator'),
+          StringStruct('ProductVersion', '1.5.0.0'),
+          StringStruct('Comments', '截图即译 / 实时翻译 / 六语互译，全程本地离线')
+        ]
+      )
+    ]),
+    VarFileInfo([VarStruct('Translation', [2052, 1200])])
+  ]
+)

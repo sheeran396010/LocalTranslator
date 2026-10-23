@@ -1,0 +1,23 @@
+# ---------- 构建与运行产物 ----------
+dist/
+build/pyi/
+*.egg-info/
+__pycache__/
+*.py[cod]
+
+# ---------- 模型与推理后端（体积大，且各自有独立许可，不入库）----------
+models/
+runtime/
+*.gguf
+*.safetensors
+*.onnx
+
+# ---------- 运行时生成的本地文件 ----------
+settings.json
+selftest_report.txt
+*.log
+
+# ---------- 开发环境 ----------
+.venv/
+venv*/
+_downloads/

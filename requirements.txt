@@ -1,0 +1,15 @@
+# 运行时依赖（Python 3.12）
+PySide6==6.12.0
+PySide6-Fluent-Widgets==1.11.3
+onnxruntime==1.31.0
+rapidocr==3.10.0
+mss==10.2.0
+httpx==0.28.1
+keyboard==0.13.5
+pyperclip==1.11.0
+pillow==13.0.0
+numpy==2.5.4
+safetensors==0.8.0
+
+# 打包（仅构建 exe 时需要）
+# pyinstaller==6.22.3

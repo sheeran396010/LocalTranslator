@@ -1,4 +1,4 @@
-﻿# Build the distributable folder (PyInstaller onedir) for the local translator.
+# Build the distributable folder (PyInstaller onedir) for the local translator.
 # Pure ASCII on purpose: Windows PowerShell 5.1 parses .ps1 as ANSI.
 #
 #   powershell -ExecutionPolicy Bypass -File build.ps1
@@ -16,13 +16,15 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
+# 所有路径基于本仓库（build\ 在仓库内），不再依赖外部开发树
+$repo  = Split-Path $PSScriptRoot -Parent          # 仓库根目录
 $py    = 'E:\Ai\venv312\Scripts\python.exe'
-$app   = 'E:\Sheeran\app'
-$dist  = 'E:\Sheeran\dist'
-$work  = 'E:\Sheeran\build\pyi'
+$app   = Join-Path $repo 'app'
+$dist  = Join-Path (Split-Path $repo -Parent) 'dist'   # 产物放在仓库外，避免入库
+$work  = Join-Path $PSScriptRoot 'pyi'
 $name  = 'LocalTranslator'
 $sp    = 'E:\Ai\venv312\Lib\site-packages'
-$icon  = 'E:\Sheeran\build\app.ico'
+$icon  = Join-Path $PSScriptRoot 'app.ico'
 $model = 'E:\Ai\models\mt-1.8b-bf16-Q5_K_M.gguf'
 $llama = 'E:\Ai\llama.cpp'
 
@@ -107,7 +109,7 @@ if (-not $SkipModel) {
     Copy-Item $model $md -Force
 }
 
-Get-ChildItem 'E:\Sheeran\build\*.txt' | Copy-Item -Destination $out -Force
+Get-ChildItem (Join-Path $PSScriptRoot '*.txt') | Copy-Item -Destination $out -Force
 
 $size = (Get-ChildItem $out -Recurse -File | Measure-Object Length -Sum).Sum / 1MB
 Write-Host ''
